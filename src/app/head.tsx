@@ -2,7 +2,7 @@ import { siteConfig } from '@/config/site'
 
 export default function Head() {
   const url = process.env.NEXT_PUBLIC_APP_URL
-  const ogUrl = new URL(`${url}/og.jpg`)
+  // const ogUrl = new URL(`${url}/og.jpg`)
 
   return (
     <>
@@ -17,12 +17,12 @@ export default function Head() {
       <meta property='og:title' content={siteConfig.name} />
       <meta property='og:description' content={siteConfig.description} />
       <meta property='og:url' content={url?.toString()} />
-      <meta property='og:image' content={ogUrl.toString()} />
+      {/* <meta property='og:image' content={ogUrl.toString()} /> */}
       <meta name='twitter:title' content={siteConfig.name} />
       <meta name='twitter:description' content={siteConfig.description} />
       <meta name='twitter:card' content='summary_large_image' />
       <meta property='twitter:url' content={url?.toString()} />
-      <meta name='twitter:image' content={ogUrl.toString()} />
+      {/* <meta name='twitter:image' content={ogUrl.toString()} /> */}
     </>
   )
 }
