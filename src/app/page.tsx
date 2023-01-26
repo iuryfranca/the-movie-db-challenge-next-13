@@ -1,91 +1,67 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+// import { AppleMusicDemo } from '@/components/apple-music-demo'
+import { CopyButton } from '@/components/copy-button'
+// import { PromoVideo } from '@/components/promo-video'
+// import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { buttonVariants } from '@/components/ui/button'
 
-export default function Home() {
+export default function IndexPage() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <section className='grid items-center gap-6 pt-6 pb-8 md:py-10'>
+        <div className='flex max-w-[980px] flex-col items-start gap-2'>
+          <h1 className='text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
+            Beautifully designed components <br className='hidden sm:inline' />
+            built with Radix UI and Tailwind CSS.
+          </h1>
+          <p className='max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl'>
+            Accessible and customizable components that you can copy and paste
+            into your apps. Free. Open Source. And Next.js 13 Ready.
+          </p>
+        </div>
+        <div className='block lg:hidden'>{/* <PromoVideo /> */}</div>
+        <div className='flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 md:flex-row'>
+          <Link href='/docs' className={buttonVariants({ size: 'lg' })}>
+            Documentation
+          </Link>
+          <Link
+            target='_blank'
+            rel='noreferrer'
+            href={siteConfig.links.github}
+            className={cn(
+              buttonVariants({ variant: 'outline', size: 'lg' }),
+              'md:hidden'
+            )}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+            GitHub
+          </Link>
+          <pre className='hidden h-11 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-100 pr-2 pl-6 dark:border-slate-700 dark:bg-black md:flex'>
+            <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
+              npx create-next-app -e https://github.com/shadcn/next-template
+            </code>
+            <CopyButton
+              value='npx create-next-app -e https://github.com/shadcn/next-template'
+              className='border-none text-slate-900 hover:bg-transparent dark:text-slate-50'
             />
-          </a>
+          </pre>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+        <div>
+          <p className='text-sm text-slate-500 dark:text-slate-400'>
+            You are looking at an early preview. You can follow the progress on{' '}
+            <Link
+              href={siteConfig.links.twitter}
+              className='font-medium underline underline-offset-4'
+            >
+              Twitter
+            </Link>
+            .
+          </p>
         </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </section>
+      <section className='hidden lg:block'>{/* <AppleMusicDemo /> */}</section>
+    </>
   )
 }
