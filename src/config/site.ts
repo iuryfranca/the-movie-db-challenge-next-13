@@ -10,9 +10,9 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Template Next 13 [App]',
+  name: 'The Movie DB',
   description:
-    'Beautifully designed components built with Radix UI and Tailwind CSS.',
+    'The Movie Database (TMDB) is a popular, user editable database for movies and TV shows.',
   links: {
     twitter: 'https://twitter.com/shadcn',
     twitterShadcn: 'https://twitter.com/shadcn',
