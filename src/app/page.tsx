@@ -25,7 +25,7 @@ export default function IndexPage() {
           </p>
         </div>
       </section>
-      <section className='hidden lg:block'>
+      <section>
         {/* <AppleMusicDemo /> */}
         <TechsList />
       </section>

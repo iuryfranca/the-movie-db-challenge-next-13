@@ -23,7 +23,6 @@ export default function Head() {
         name='description'
         content='The Movie Database (TMDB) is a popular, user editable database for movies and TV shows.'
       />
-      <link rel='manifest' href='/manifest.json?version=3' />
       <link rel='canonical' href='https://www.themoviedb.org/movie' />
 
       <meta property='og:type' content='website' />

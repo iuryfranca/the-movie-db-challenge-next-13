@@ -12,6 +12,14 @@ module.exports = {
         '2xl': '1440px',
       },
     },
+    screens: {
+      xs: '430px',
+      sm: '700px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
