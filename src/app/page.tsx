@@ -6,8 +6,7 @@ export default function IndexPage() {
       <section className='grid items-center gap-6 pt-6 pb-8 md:py-10'>
         <div className='flex max-w-[980px] flex-col items-start gap-2'>
           <h1 className='text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
-            Projeto criado para testar
-            <br className='hidden sm:inline' />
+            Projeto criado para testar <br className='hidden sm:inline' />
             minhas habilidades Front-End
           </h1>
           <p className='max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl'>
