@@ -26,11 +26,11 @@ export function TechsList() {
                 <div className='w-80 z-50 rounded-md border border-slate-200 bg-white p-4 shadow-md outline-none animate-in zoom-in-90 dark:border-slate-800 dark:bg-slate-800'>
                   <div className='flex justify-between space-x-4'>
                     <Avatar>
-                      <AvatarImage src={tech.image} />
+                      <AvatarImage src={tech.image} alt='Logos techs' />
                       <AvatarFallback>VC</AvatarFallback>
                     </Avatar>
                     <div className='space-y-1 w-56'>
-                      <h4 className='text-sm font-semibold'>{tech.name}</h4>
+                      <span className='text-sm font-semibold'>{tech.name}</span>
                       <p className='text-sm'>{tech.description}</p>
                     </div>
                     <Icons.externalLink className='h-4 w-4' />

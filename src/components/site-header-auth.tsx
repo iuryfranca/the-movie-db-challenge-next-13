@@ -33,6 +33,7 @@ export function SiteHeaderAuth() {
               href={siteConfig.links.github}
               target='_blank'
               rel='noreferrer'
+              aria-label='Acessar perfil github'
             >
               <div
                 className={buttonVariants({
