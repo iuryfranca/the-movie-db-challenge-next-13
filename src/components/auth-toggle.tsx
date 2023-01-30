@@ -30,10 +30,7 @@ export function AuthToggle({ user }: UserAccountNavProps) {
         ) : (
           <Button variant='ghost' size='sm'>
             <Avatar>
-              <AvatarImage
-                src='https://github.com/iuryfranca.png'
-                alt='@iuryfranca'
-              />
+              <AvatarImage src={user.image} alt={user.name} />
             </Avatar>
           </Button>
         )}

@@ -37,9 +37,6 @@ export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
           <MainNav items={docsConfig.mainNav} />
         )}
         <div className='flex flex-1 items-center justify-end space-x-4'>
-          {/* <div className='hidden flex-1 sm:grow-0 md:flex'>
-            <DocsSearch />
-          </div> */}
           {isPresentation && (
             <pre className='hidden lg:flex h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900'>
               <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
