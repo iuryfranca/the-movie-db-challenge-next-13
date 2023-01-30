@@ -1,8 +1,6 @@
 import { siteConfig } from '@/config/site'
 
 export default function Head() {
-  // const url = process.env.NEXT_PUBLIC_APP_URL
-  // const ogUrl = new URL(`${url}/og.jpg`)
   return (
     <>
       <meta http-equiv='cleartype' content='on' />
@@ -23,13 +21,6 @@ export default function Head() {
         name='description'
         content='The Movie Database (TMDB) is a popular, user editable database for movies and TV shows.'
       />
-      <link rel='canonical' href='https://www.themoviedb.org/movie' />
-
-      <meta property='og:type' content='website' />
-      <meta property='og:title' content={siteConfig.name} />
-      <meta property='og:description' content={siteConfig.description} />
-      {/* <meta property='og:url' content={url?.toString()} /> */}
-      {/* <meta property='og:image' content={ogUrl.toString()} /> */}
     </>
   )
 }
