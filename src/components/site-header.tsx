@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { docsConfig } from '@/config/docs'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MainNav } from '@/components/main-nav'
@@ -34,7 +33,7 @@ export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
             </Button>
           </Link>
         ) : (
-          <MainNav items={docsConfig.mainNav} />
+          <MainNav />
         )}
         <div className='flex flex-1 items-center justify-end space-x-4'>
           {isPresentation && (

@@ -4,23 +4,8 @@ import * as React from 'react'
 import Link from 'next/link'
 import logoShort from '../../public/blue_short.svg'
 
-import { useSelectedLayoutSegment } from 'next/navigation'
 import { MainNavItem } from 'types/nav'
 
-import { docsConfig } from '@/config/docs'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import { Icons } from '@/components/icons'
-import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -38,16 +23,10 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar'
 
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Globe, Mic } from 'lucide-react'
 import Image from 'next/image'
 
-interface MainNavProps {
-  items?: MainNavItem[]
-  children?: React.ReactNode
-}
-
-export function MainNav({ items, children }: MainNavProps) {
+export function MainNav() {
   return (
     <div className='flex gap-6 md:gap-10'>
       <Link href='/' className='hidden items-center space-x-2 md:flex'>
@@ -77,7 +56,7 @@ export function MainNav({ items, children }: MainNavProps) {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>Pesoas</MenubarTrigger>
+          <MenubarTrigger>Pessoas</MenubarTrigger>
           <MenubarContent>
             <MenubarItem disabled>
               Undo <MenubarShortcut>⌘Z</MenubarShortcut>
