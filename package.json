@@ -1,6 +1,7 @@
 {
   "name": "the-movie-db-challenge-next13",
   "version": "0.1.0",
+  "homepage": "https://the-movie-db-challenge-next-13.vercel.app/",
   "private": true,
   "scripts": {
     "dev": "next dev",
