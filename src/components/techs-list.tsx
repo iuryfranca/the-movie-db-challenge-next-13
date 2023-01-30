@@ -12,7 +12,7 @@ export function TechsList() {
       <span className='text-md md:text-1xl font-bold leading-tight tracking-tighter lg:text-2xl lg:leading-[1.1]'>
         techs utilizadas
       </span>
-      <div className='grid max-w-[980px] grid-cols-1 items-center justify-items-center gap-8 xs:justify-start sm:grid-cols-2'>
+      <div className='grid max-w-[980px] grid-cols-1 items-center justify-items-center gap-8 xs:justify-items-start sm:grid-cols-2'>
         {siteTechs.map((tech, index) => {
           return (
             <Link
