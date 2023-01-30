@@ -37,12 +37,12 @@ export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
         )}
         <div className='flex flex-1 items-center justify-end space-x-4'>
           {isPresentation && (
-            <pre className='hidden lg:flex h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900'>
+            <pre className='hidden h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900 lg:flex'>
               <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
                 https://github.com/iuryfranca/the-movie-db-challenge-next-13
               </code>
               <Link
-                href={siteConfig.links.github}
+                href='https://github.com/iuryfranca/the-movie-db-challenge-next-13'
                 target='_blank'
                 rel='noreferrer'
                 aria-label='Acessar perfil github'
