@@ -9,11 +9,9 @@ export default async function MovieLayout({ children }: MovieLayoutProps) {
   const userSession = await getCurrentUser()
 
   return (
-    <div>
-      <header>
-        <SiteHeader user={userSession} />
-      </header>
+    <>
+      <SiteHeader user={userSession} />
       <main className='container flex-1'>{children}</main>
-    </div>
+    </>
   )
 }

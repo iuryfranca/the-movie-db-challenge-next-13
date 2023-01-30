@@ -13,9 +13,7 @@ export default async function IntroductionLayout({
 
   return (
     <div className='flex min-h-screen flex-col'>
-      <header>
-        <SiteHeader user={userSession} isPresentation />
-      </header>
+      <SiteHeader user={userSession} isPresentation />
       <main className='container flex-1'>{children}</main>
     </div>
   )
