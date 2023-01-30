@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteFooter } from '@/components/site-footer'
-import { Analytics } from '@/components/analytics'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -27,8 +26,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='flex min-h-screen -mb-24 flex-col'>{children}</div>
-          <Analytics />
+          <div className='-mb-24 flex min-h-screen flex-col'>{children}</div>
           <SiteFooter />
           <TailwindIndicator />
         </ThemeProvider>
