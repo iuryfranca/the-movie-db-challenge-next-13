@@ -26,7 +26,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='-mb-24 flex min-h-screen flex-col'>{children}</div>
+          <div className='flex min-h-screen flex-col lg:-mb-24'>{children}</div>
           <SiteFooter />
           <TailwindIndicator />
         </ThemeProvider>
