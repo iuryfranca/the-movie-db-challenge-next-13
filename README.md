@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>The Movie Challenge Next 13</strong>
+  <strong>The Movie DB Challenge Next 13</strong>
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@ The following technologies were used in the project:
 
 ```bash
 # Clone this project
-$ git clone https://github.com/iuryfranca/apiki-front-end-challenge.git
+$ git clone https://github.com/iuryfranca/the-movie-db-challenge-next-13.git
 
 # Install dependencies
 $ yarn install
