@@ -3,7 +3,6 @@ import { siteConfig } from '@/config/site'
 export default function Head() {
   return (
     <>
-      <meta http-equiv='cleartype' content='on' />
       <meta charSet='utf-8' />
       <title>{`${siteConfig.name} - ${siteConfig.description}`}</title>
       <meta name='description' content={siteConfig.description} />

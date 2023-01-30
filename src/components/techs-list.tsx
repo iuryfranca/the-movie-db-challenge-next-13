@@ -31,7 +31,7 @@ export function TechsList() {
                     </Avatar>
                     <div className='space-y-1 w-56'>
                       <span className='text-sm font-semibold'>{tech.name}</span>
-                      <p className='text-sm'>{tech.description}</p>
+                      <span className='text-sm'>{tech.description}</span>
                     </div>
                     <Icons.externalLink className='h-4 w-4' />
                   </div>

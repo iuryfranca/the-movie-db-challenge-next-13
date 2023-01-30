@@ -9,7 +9,7 @@ export default function IndexPage() {
             Projeto criado para testar <br className='hidden sm:inline' />
             minhas habilidades Front-End
           </h1>
-          <p className='max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl'>
+          <span className='max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl'>
             O desafio consiste em consultar a{' '}
             <a
               href='https://www.themoviedb.org/documentation/api'
@@ -21,7 +21,7 @@ export default function IndexPage() {
             </a>
             <br className='hidden sm:inline' />e criar uma aplicação focada em
             desempenho.
-          </p>
+          </span>
         </div>
       </section>
       <section>
