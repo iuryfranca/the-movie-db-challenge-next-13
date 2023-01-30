@@ -2,8 +2,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { siteTechs } from '@/config/site'
-import Link from 'next/link'
 import { Icons } from './icons'
+import Link from 'next/link'
 import Tilt from 'react-parallax-tilt'
 
 export function TechsList() {
