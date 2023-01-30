@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>The Movie Challenge Next 13</strong>
+  <strong>The Movie DB Challenge Next 13</strong>
 </p>
 
 <p align="center">
