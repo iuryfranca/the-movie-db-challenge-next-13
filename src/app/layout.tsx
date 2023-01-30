@@ -2,11 +2,9 @@ import { Inter as FontSans } from '@next/font/google'
 
 import '@/styles/globals.css'
 import { cn } from '@/lib/utils'
-import { SiteFooter } from '@/components/site-footer'
-import { SiteHeader } from '@/components/site-header'
-import { SiteHeaderAuth } from '@/components/site-header-auth'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SiteFooter } from '@/components/site-footer'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -17,28 +15,25 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  // if (!userSession) {
+  //   return notFound()
+  // }
   return (
-    <>
-      <html lang='pt-br' suppressHydrationWarning>
-        <head />
-        <body
-          className={cn(
-            'min-h-screen bg-white font-sans text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50',
-            fontSans.variable
-          )}
-        >
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            <div className='flex min-h-screen flex-col'>
-              {/* <SiteHeader /> */}
-              <SiteHeaderAuth />
-              <div className='container flex-1'>{children}</div>
-              <SiteFooter />
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html lang='pt-BR' suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          'min-h-screen bg-white font-sans text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50',
+          fontSans.variable
+        )}
+      >
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <div className='flex min-h-screen -mb-24 flex-col'>{children}</div>
+          <SiteFooter />
+          <TailwindIndicator />
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

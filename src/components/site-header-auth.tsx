@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
-import { ModeToggle } from '@/components/mode-toggle'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { LogIn, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -22,7 +22,8 @@ export function SiteHeaderAuth() {
         <Link href='/login'>
           <Button>
             <span className='font-semibold'>
-              {media.sm ? 'Conheça essa aplicação!' : 'Vamos lá!'}
+              {(media.sm ? 'Conheça essa aplicação!' : 'Vamos lá!') ||
+                'Conheça essa aplicação!'}
             </span>
             <LogIn className='ml-2 h-4 w-4' />
           </Button>
@@ -83,7 +84,7 @@ export function SiteHeaderAuth() {
                 <span className='sr-only'>Linkedin</span>
               </div>
             </Link>
-            <ModeToggle />
+            <ThemeToggle />
             <div
               onClick={() => signOut()}
               className={buttonVariants({

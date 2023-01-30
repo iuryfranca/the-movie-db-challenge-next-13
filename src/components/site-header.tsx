@@ -1,23 +1,68 @@
-import Link from 'next/link'
+'use client'
 
+import Link from 'next/link'
 import { docsConfig } from '@/config/docs'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MainNav } from '@/components/main-nav'
-import { ModeToggle } from '@/components/mode-toggle'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { AuthToggle } from '@/components/auth-toggle'
 import { DocsSearch } from '@/components/search'
-import { DocsSidebarNav } from '@/components/sidebar-nav'
-import { buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { useMedia } from '@/hooks/use-media'
+import { LogIn } from 'lucide-react'
+import { User } from 'next-auth'
 
-export function SiteHeader() {
+interface SiteHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  isPresentation?: boolean
+  user?: Pick<User, 'name' | 'image' | 'email'>
+}
+
+export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
+  const media = useMedia()
+
   return (
     <header className='sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900'>
       <div className='container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0'>
-        <MainNav items={docsConfig.mainNav} />
+        {isPresentation ? (
+          <Link href='/movies'>
+            <Button>
+              <span className='font-semibold'>
+                {!media.sm ? 'Vamos lá!' : 'Conheça essa aplicação!'}
+              </span>
+              <LogIn className='ml-2 h-4 w-4' />
+            </Button>
+          </Link>
+        ) : (
+          <MainNav items={docsConfig.mainNav} />
+        )}
         <div className='flex flex-1 items-center justify-end space-x-4'>
-          <div className='hidden flex-1 sm:grow-0 md:flex'>
+          {/* <div className='hidden flex-1 sm:grow-0 md:flex'>
             <DocsSearch />
-          </div>
+          </div> */}
+          {isPresentation && (
+            <pre className='hidden lg:flex h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900'>
+              <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
+                https://github.com/iuryfranca/the-movie-db-challenge-next-13
+              </code>
+              <Link
+                href={siteConfig.links.github}
+                target='_blank'
+                rel='noreferrer'
+                aria-label='Acessar perfil github'
+              >
+                <div
+                  className={buttonVariants({
+                    size: 'sm',
+                    variant: 'ghost',
+                    className: 'text-slate-700 dark:text-slate-400',
+                  })}
+                >
+                  <Icons.externalLink className='h-4 w-4 ' />
+                </div>
+              </Link>
+            </pre>
+          )}
           <nav className='flex items-center space-x-1'>
             <Link
               href={siteConfig.links.github}
@@ -28,10 +73,13 @@ export function SiteHeader() {
                 className={buttonVariants({
                   size: 'sm',
                   variant: 'ghost',
-                  className: 'text-slate-700 dark:text-slate-400',
                 })}
               >
-                <Icons.gitHub className='h-5 w-5' />
+                <Icons.gitHub
+                  height='1.25rem'
+                  width='1.25rem'
+                  className='text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
+                />
                 <span className='sr-only'>GitHub</span>
               </div>
             </Link>
@@ -44,14 +92,29 @@ export function SiteHeader() {
                 className={buttonVariants({
                   size: 'sm',
                   variant: 'ghost',
-                  className: 'text-slate-700 dark:text-slate-400',
                 })}
               >
-                <Icons.linkedin className='h-5 w-5 fill-current' />
+                <Icons.linkedin
+                  height='1.25rem'
+                  width='1.25rem'
+                  fill='currentColor'
+                  className='text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
+                />
                 <span className='sr-only'>Linkedin</span>
               </div>
             </Link>
-            <ModeToggle />
+            <ThemeToggle />
+            <AuthToggle
+              user={
+                user
+                  ? {
+                      name: user.name,
+                      image: user.image,
+                      email: user.email,
+                    }
+                  : null
+              }
+            />
           </nav>
         </div>
       </div>
