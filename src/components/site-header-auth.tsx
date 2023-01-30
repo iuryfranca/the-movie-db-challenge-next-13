@@ -6,10 +6,12 @@ import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { LogIn } from 'lucide-react'
+import { LogIn, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useMedia } from '@/hooks/use-media'
-
+import { signOut } from 'next-auth/react'
+import { redirect } from 'next/navigation'
+import { authOptions } from '@/lib/auth'
 export function SiteHeaderAuth() {
   const media = useMedia()
 
@@ -17,13 +19,14 @@ export function SiteHeaderAuth() {
     <header className='sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900'>
       <div className='container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0'>
         {/* <MainNav items={docsConfig.mainNav} /> */}
-        <Button>
-          <span className='font-semibold'>
-            {media.sm ? 'Conheça essa aplicação!' : 'Vamos lá!'}
-          </span>
-          <LogIn className='ml-2 h-4 w-4' />
-          {/* <DemoIndicator className='left-[230px] top-8 flex sm:hidden' /> */}
-        </Button>
+        <Link href='/login'>
+          <Button>
+            <span className='font-semibold'>
+              {media.sm ? 'Conheça essa aplicação!' : 'Vamos lá!'}
+            </span>
+            <LogIn className='ml-2 h-4 w-4' />
+          </Button>
+        </Link>
         <div className='flex flex-1 items-center justify-end space-x-4'>
           <pre className='hidden lg:flex h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900'>
             <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
@@ -42,7 +45,7 @@ export function SiteHeaderAuth() {
                   className: 'text-slate-700 dark:text-slate-400',
                 })}
               >
-                <Icons.externalLink className='h-4 w-4' />
+                <Icons.externalLink className='h-4 w-4 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100' />
               </div>
             </Link>
           </pre>
@@ -60,7 +63,7 @@ export function SiteHeaderAuth() {
                   className: 'text-slate-700 dark:text-slate-400',
                 })}
               >
-                <Icons.gitHub className='h-5 w-5' />
+                <Icons.gitHub className='h-5 w-5 fill-current text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100' />
                 <span className='sr-only'>GitHub</span>
               </div>
             </Link>
@@ -76,11 +79,21 @@ export function SiteHeaderAuth() {
                   className: 'text-slate-700 dark:text-slate-400',
                 })}
               >
-                <Icons.linkedin className='h-5 w-5 fill-current' />
+                <Icons.linkedin className='h-5 w-5 fill-current text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100' />
                 <span className='sr-only'>Linkedin</span>
               </div>
             </Link>
             <ModeToggle />
+            <div
+              onClick={() => signOut()}
+              className={buttonVariants({
+                size: 'sm',
+                variant: 'ghost',
+                className: 'text-slate-700 dark:text-slate-400',
+              })}
+            >
+              <LogOut className='h-5 w-5 font-bold text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 cursor-pointer' />
+            </div>
           </nav>
         </div>
       </div>

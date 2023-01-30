@@ -25,7 +25,6 @@ export default function IndexPage() {
         </div>
       </section>
       <section>
-        {/* <AppleMusicDemo /> */}
         <TechsList />
       </section>
     </>
