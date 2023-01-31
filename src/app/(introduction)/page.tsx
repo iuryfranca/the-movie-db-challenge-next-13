@@ -15,12 +15,12 @@ export default function IndexPage() {
               href='https://www.themoviedb.org/documentation/api'
               target='_blank'
               rel='noreferrer'
-              className='font-medium underline underline-offset-4 font-semibold'
+              className='font-medium font-semibold underline underline-offset-4'
             >
               themoviedb API
             </a>
             <br className='hidden sm:inline' />e criar uma aplicação focada em
-            desempenho.
+            desempenho e acessibilidade.
           </span>
         </div>
       </section>
