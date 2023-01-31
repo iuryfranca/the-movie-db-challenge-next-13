@@ -33,8 +33,8 @@ export function MobileNav() {
         'fixed inset-0 top-14 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 animate-in slide-in-from-bottom-80 md:hidden'
       )}
     >
-      <div className='z-20grid  relative flex flex-col gap-6 rounded-md border-2 border-slate-300 bg-white p-4 antialiased shadow-lg dark:border-slate-700 dark:bg-slate-800'>
-        <Link href='/' className='flex items-center space-x-2'>
+      <div className='z-20grid relative flex flex-col gap-6 rounded-md border-2 border-slate-300 bg-white p-3 antialiased shadow-lg dark:border-slate-700 dark:bg-slate-800'>
+        <div className='flex gap-3'>
           <Image
             src={logoBlueSquare?.src}
             alt='Logo Short'
@@ -42,7 +42,7 @@ export function MobileNav() {
             width={logoBlueSquare?.width / 5}
           />
           <span className='font-bold'>{siteConfig.name}</span>
-        </Link>
+        </div>
 
         <Menubar className='className="grid text-sm" grid-flow-row auto-rows-max'>
           <MenubarMenu>

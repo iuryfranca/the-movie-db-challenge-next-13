@@ -3,11 +3,11 @@ import { createUseMedia } from 'react-use-media'
 
 export function useMedia() {
   return {
-    xs: createUseMedia({ minWidth: 499 })(),
-    sm: createUseMedia({ minWidth: 500 })(),
-    md: createUseMedia({ minWidth: 640 })(),
-    lg: createUseMedia({ minWidth: 768 })(),
-    xl: createUseMedia({ minWidth: 1024 })(),
-    '2xl': createUseMedia({ minWidth: 1280 })(),
+    xs: createUseMedia({ minWidth: 430 })(),
+    sm: createUseMedia({ minWidth: 580 })(),
+    md: createUseMedia({ minWidth: 768 })(),
+    lg: createUseMedia({ minWidth: 1024 })(),
+    xl: createUseMedia({ minWidth: 1280 })(),
+    '2xl': createUseMedia({ minWidth: 1536 })(),
   }
 }
