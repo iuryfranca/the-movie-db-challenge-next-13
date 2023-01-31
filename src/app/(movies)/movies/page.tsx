@@ -12,8 +12,8 @@ export default async function IndexPage() {
         <section className='grid w-full items-center gap-6 pt-6 md:py-5'>
           <FilterSkeleton />
         </section>
-        <section className='pt-6 pb-8 md:py-5'>
-          <div className='flex flex-row flex-wrap justify-between gap-6 md:justify-start'>
+        <section className='flex w-full pt-6 pb-8 md:py-5'>
+          <div className='flex w-full flex-row flex-wrap justify-between gap-6 md:justify-start'>
             <CardMovieSkeleton />
             <CardMovieSkeleton />
             <CardMovieSkeleton />

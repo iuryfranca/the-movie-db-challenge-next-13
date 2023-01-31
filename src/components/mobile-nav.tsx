@@ -104,22 +104,6 @@ export function MobileNav() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>View</MenubarTrigger>
-            <MenubarContent>
-              <MenubarCheckboxItem>Show Playing Next</MenubarCheckboxItem>
-              <MenubarCheckboxItem checked>Show Lyrics</MenubarCheckboxItem>
-              <MenubarSeparator />
-              <MenubarItem inset disabled>
-                Show Status Bar
-              </MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem inset>Hide Sidebar</MenubarItem>
-              <MenubarItem disabled inset>
-                Enter Full Screen
-              </MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-          <MenubarMenu>
             <MenubarTrigger>Account</MenubarTrigger>
             <MenubarContent forceMount>
               <MenubarLabel inset>Switch Account</MenubarLabel>
