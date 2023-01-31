@@ -1,15 +1,32 @@
+import { CardMovieSkeleton } from '@/components/skeleton/card-movie-skeleton'
+import { FilterSkeleton } from '@/components/skeleton/filter-skeleton'
 import * as React from 'react'
 
 export default async function IndexPage() {
   return (
     <>
-      <section className='grid items-center gap-6 pt-6 pb-8 md:py-10'>
-        <div className='flex max-w-[980px] flex-col items-start gap-2'>
-          <h1 className='text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
-            LISTAGEM DE FILMES <br className='hidden sm:inline' />
-          </h1>
-        </div>
-      </section>
+      <p className='pt-3 pb-3 text-2xl font-extrabold leading-tight tracking-tighter md:py-5 md:text-3xl lg:text-4xl  lg:leading-[1.1]'>
+        Filmes populares
+      </p>
+      <div className='flex flex-col items-start gap-6 md:grid md:grid-cols-[250px_1fr]'>
+        <section className='grid w-full items-center gap-6 pt-6 md:py-5'>
+          <FilterSkeleton />
+        </section>
+        <section className='pt-6 pb-8 md:py-5'>
+          <div className='flex flex-row flex-wrap justify-center gap-6 md:justify-start'>
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+            <CardMovieSkeleton />
+          </div>
+        </section>
+      </div>
     </>
   )
 }
