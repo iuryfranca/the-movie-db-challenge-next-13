@@ -13,7 +13,7 @@ export default async function IndexPage() {
           <FilterSkeleton />
         </section>
         <section className='pt-6 pb-8 md:py-5'>
-          <div className='flex flex-row flex-wrap justify-center gap-6 md:justify-start'>
+          <div className='flex flex-row flex-wrap justify-between gap-6 md:justify-start'>
             <CardMovieSkeleton />
             <CardMovieSkeleton />
             <CardMovieSkeleton />

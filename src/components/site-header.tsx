@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import React from 'react'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MainNav } from '@/components/main-nav'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { AuthToggle } from '@/components/auth-toggle'
-import { DocsSearch } from '@/components/search'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { useMedia } from '@/hooks/use-media'
 import { LogIn } from 'lucide-react'
@@ -19,6 +19,7 @@ interface SiteHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
   const media = useMedia()
+  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
     <header className='sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900'>

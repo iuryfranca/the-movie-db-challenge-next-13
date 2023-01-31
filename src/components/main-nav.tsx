@@ -3,8 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import logoShort from '../../public/blue_short.svg'
-
-import { MainNavItem } from 'types/nav'
+import logoBlueSquare from '../../public/blue_square_2.svg'
 
 import {
   Menubar,
@@ -17,16 +16,17 @@ import {
   MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from '@/components/ui/menubar'
 
 import { Globe, Mic } from 'lucide-react'
 import Image from 'next/image'
+import { Icons } from './icons'
+import { MobileNav } from './mobile-nav'
 
 export function MainNav() {
+  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
+
   return (
     <div className='flex gap-6 md:gap-10'>
       <Link href='/' className='hidden items-center space-x-2 md:flex'>
@@ -37,7 +37,8 @@ export function MainNav() {
           width={logoShort?.width / 2}
         />
       </Link>
-      <Menubar className='rounded-none border-b border-none dark:bg-slate-900'>
+
+      <Menubar className='hidden rounded-none border-b border-none dark:bg-slate-900 md:flex'>
         <MenubarMenu>
           <MenubarTrigger className='font-bold'>Filmes</MenubarTrigger>
           <MenubarContent>
@@ -129,6 +130,24 @@ export function MainNav() {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
+
+      <button
+        className='flex items-center space-x-2 md:hidden'
+        onClick={() => setShowMobileMenu(!showMobileMenu)}
+      >
+        {showMobileMenu ? (
+          <Icons.close />
+        ) : (
+          <Image
+            src={logoBlueSquare?.src}
+            alt='Logo Short'
+            height={logoBlueSquare?.height / 5}
+            width={logoBlueSquare?.width / 5}
+          />
+        )}
+        <span className='text-xl font-bold'>Menu</span>
+      </button>
+      {showMobileMenu && <MobileNav />}
     </div>
   )
 }
