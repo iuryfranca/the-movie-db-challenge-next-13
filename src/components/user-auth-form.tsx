@@ -21,7 +21,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       </div>
       <button
         type='button'
-        className='inline-flex w-full items-center justify-center rounded-lg border bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'
+        className='inline-flex w-full items-center justify-center rounded-lg border bg-white px-5 py-2.5 text-center text-sm font-medium text-slate-900 antialiased hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:bg-slate-900 dark:text-slate-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'
         onClick={() => signIn('github')}
       >
         <svg
@@ -43,7 +43,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       </button>
       <button
         type='button'
-        className='inline-flex w-full items-center justify-center rounded-lg border bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'
+        className='inline-flex w-full items-center justify-center rounded-lg border bg-white px-5 py-2.5 text-center text-sm font-medium text-slate-900 antialiased hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:bg-slate-900 dark:text-slate-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'
         onClick={() => signIn('google')}
       >
         <Icons.googleBlack className='mr-2 h-4 w-4' />
