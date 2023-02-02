@@ -5,11 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      'avatars.githubusercontent.com',
-      'images.unsplash.com',
-      'www.atoupeira.com.br',
-    ],
+    domains: ['avatars.githubusercontent.com', 'image.tmdb.org'],
   },
   experimental: {
     appDir: true,
