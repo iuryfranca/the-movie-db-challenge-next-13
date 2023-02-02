@@ -35,7 +35,7 @@ const Circle = ({ color, pct }: CircleProps) => {
   )
 }
 
-const Pie = ({ percentage, color }: PieProps) => {
+export function Pie({ percentage, color }: PieProps) {
   const pct = cleanPercentage(percentage)
   return (
     <svg width={50} height={50}>
@@ -46,5 +46,3 @@ const Pie = ({ percentage, color }: PieProps) => {
     </svg>
   )
 }
-
-export default Pie

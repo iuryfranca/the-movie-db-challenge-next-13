@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Pie from '@/components/pie'
+import { Pie } from '@/components/pie'
 import clsx from 'clsx'
 import { formatShortDate } from '@/lib/utils'
 
