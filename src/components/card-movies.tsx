@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import { Pie } from '@/components/pie'
 import clsx from 'clsx'
+import Image from 'next/image'
+import { CircleProgressBar } from '@/components/circle-progress-bar'
 import { formatShortDate } from '@/lib/utils'
 
 interface CardMovieProps {
@@ -38,7 +38,7 @@ export function CardMovie({
       </div>
       <div className='relative flex h-36 w-full flex-col items-center justify-between gap-2 rounded-b-md rounded-r-md rounded-l-none bg-slate-900 p-2 pt-5 dark:bg-white sm:h-24 sm:rounded-t-none sm:rounded-b-md sm:pt-7'>
         <div className='absolute left-1 -top-6 z-20 hidden items-center justify-center rounded-full bg-slate-300  text-slate-50 dark:bg-slate-900 sm:flex'>
-          <Pie
+          <CircleProgressBar
             percentage={percentage}
             color={clsx({
               '#991b1b': percentage >= 0 && percentage < 25,

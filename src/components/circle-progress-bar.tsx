@@ -35,7 +35,7 @@ const Circle = ({ color, pct }: CircleProps) => {
   )
 }
 
-export function Pie({ percentage, color }: PieProps) {
+export function CircleProgressBar({ percentage, color }: PieProps) {
   const pct = cleanPercentage(percentage)
   return (
     <svg width={50} height={50}>
