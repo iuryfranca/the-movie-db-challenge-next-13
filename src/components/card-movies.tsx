@@ -53,13 +53,15 @@ export function CardMovie({
           </div>
         </div>
         <div className='flex h-full w-full flex-col gap-1 sm:justify-between'>
-          <p className='text-sm font-bold line-clamp-2 text-ellipsis whitespace-wrap'>{title}</p>
+          <p className='whitespace-wrap text-ellipsis text-sm font-bold line-clamp-2'>
+            {title}
+          </p>
           <p className='text-xs text-slate-300 dark:text-slate-600'>
             {releaseDateFormatted}
           </p>
         </div>
         <div className='flex h-24 w-full justify-start rounded-sm pb-2 sm:hidden'>
-          <span className='text-sm line-clamp-2 text-ellipsis whitespace-wrap'>
+          <span className='whitespace-wrap text-ellipsis text-sm line-clamp-2'>
             {overview}
           </span>
         </div>

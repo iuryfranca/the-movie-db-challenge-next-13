@@ -2,7 +2,6 @@ import { Inter as FontSans } from '@next/font/google'
 
 import '@/styles/globals.css'
 import { cn } from '@/lib/utils'
-import { Analytics } from '@/components/analytics'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteFooter } from '@/components/site-footer'
@@ -28,7 +27,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='flex min-h-screen flex-col'>{children}</div>
-          <Analytics />
           <SiteFooter />
           <TailwindIndicator />
         </ThemeProvider>
