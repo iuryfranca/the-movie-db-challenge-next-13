@@ -22,11 +22,11 @@ export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
 
   return (
     <header className='sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900'>
-      <div className='container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0'>
+      <div className='container flex h-16 items-center sm:justify-between sm:space-x-0'>
         {isPresentation ? (
           <Link href='/movies'>
             <Button>
-              <span className='font-semibold'>
+              <span className='text-xs font-semibold sm:text-sm'>
                 {!media.sm ? 'Vamos lá!' : 'Conheça essa aplicação!'}
               </span>
               <LogIn className='ml-2 h-4 w-4' />
@@ -35,7 +35,7 @@ export function SiteHeader({ isPresentation, user }: SiteHeaderProps) {
         ) : (
           <MainNav />
         )}
-        <div className='flex flex-1 items-center justify-end space-x-4'>
+        <div className='flex flex-1 items-center justify-end'>
           {isPresentation && (
             <pre className='hidden h-10 items-center justify-between space-x-2 overflow-x-auto rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900 lg:flex'>
               <code className='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>

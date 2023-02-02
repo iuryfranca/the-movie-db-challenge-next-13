@@ -132,7 +132,7 @@ export function MainNav() {
       </Menubar>
 
       <button
-        className='flex items-center space-x-2 md:hidden'
+        className='flex flex-col items-center md:hidden'
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         {showMobileMenu ? (
@@ -143,10 +143,9 @@ export function MainNav() {
             alt='Logo Short'
             height={logoBlueSquare?.height / 5}
             width={logoBlueSquare?.width / 5}
-            className='h-auto w-auto'
           />
         )}
-        <span className='text-xl font-bold'>Menu</span>
+        <span className='text-sm font-bold'>Menu</span>
       </button>
       {showMobileMenu && <MobileNav />}
     </div>

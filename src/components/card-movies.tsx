@@ -26,6 +26,7 @@ export function CardMovie({
   return (
     <div className='flex w-full text-slate-50 dark:text-slate-900 sm:w-44 sm:flex-col'>
       <div className='relative h-36 w-36 sm:h-56 sm:w-full md:h-64'>
+        {/* 185 x 278 */}
         <Image
           src={srcImage}
           priority
