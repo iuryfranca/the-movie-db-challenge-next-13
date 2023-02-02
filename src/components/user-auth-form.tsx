@@ -4,7 +4,8 @@ import * as React from 'react'
 import { signIn } from 'next-auth/react'
 
 import { cn } from '@/lib/utils'
-import { Icons } from './icons'
+import { Icons } from '@/components/icons'
+import { Button } from '@/components/ui/button'
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -19,7 +20,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           <span className='bg-white px-2 text-slate-600'>Or continue with</span>
         </div>
       </div>
-      <button
+      <Button
         type='button'
         className='inline-flex w-full items-center justify-center rounded-lg border bg-white px-5 py-2.5 text-center text-sm font-medium text-slate-900 antialiased hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:bg-slate-900 dark:text-slate-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'
         onClick={() => signIn('github')}
@@ -40,7 +41,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           ></path>
         </svg>
         Github
-      </button>
+      </Button>
       <button
         type='button'
         className='inline-flex w-full items-center justify-center rounded-lg border bg-white px-5 py-2.5 text-center text-sm font-medium text-slate-900 antialiased hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 disabled:opacity-50 dark:bg-slate-900 dark:text-slate-50 dark:hover:bg-[#050708]/30 dark:focus:ring-slate-500'

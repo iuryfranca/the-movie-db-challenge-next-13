@@ -34,15 +34,16 @@ export function MobileNav() {
       )}
     >
       <div className='z-20grid relative flex flex-col gap-6 rounded-md border-2 border-slate-300 bg-white p-3 antialiased shadow-lg dark:border-slate-700 dark:bg-slate-800'>
-        <div className='flex gap-3'>
+        <Link href='/' className='flex gap-3'>
           <Image
             src={logoBlueSquare?.src}
             alt='Logo Short'
-            height={logoBlueSquare?.height / 5}
-            width={logoBlueSquare?.width / 5}
+            height={logoBlueSquare?.height / 4.5}
+            width={logoBlueSquare?.width / 4.5}
+            className='h=auto w-auto max-w-[40px]'
           />
           <span className='font-bold'>{siteConfig.name}</span>
-        </div>
+        </Link>
 
         <Menubar className='className="grid text-sm" grid-flow-row auto-rows-max'>
           <MenubarMenu>

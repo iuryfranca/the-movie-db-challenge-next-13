@@ -143,6 +143,7 @@ export function MainNav() {
             alt='Logo Short'
             height={logoBlueSquare?.height / 5}
             width={logoBlueSquare?.width / 5}
+            // className='h=auto w-auto'
           />
         )}
         <span className='text-sm font-bold'>Menu</span>
