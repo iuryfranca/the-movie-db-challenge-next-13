@@ -24,8 +24,10 @@ export function CardMovie({
   const srcImage = 'https://image.tmdb.org/t/p/w185' + poster_path
 
   return (
-    <div className='flex w-full text-slate-50 dark:text-slate-900 sm:w-44 sm:flex-col'>
-      <div className='relative h-36 w-36 sm:h-56 sm:w-full md:h-64'>
+    <div className='flex w-full text-slate-50 dark:text-slate-900 sm:w-[185px] sm:flex-col'>
+      <div className='md:first-letter relative h-36 w-36 sm:h-[278px] sm:w-full'>
+        {/* <div className='relative h-[185px] w-[185] sm:h-56 sm:w-full md:h-[278px]'> */}
+
         {/* 185 x 278 */}
         <Image
           src={srcImage}
