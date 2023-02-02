@@ -31,6 +31,7 @@ export function CardMovie({
           priority
           alt={title}
           fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           className='rounded-b-none rounded-r-none rounded-l-md sm:rounded-b-none sm:rounded-t-md'
           quality={100}
         />
