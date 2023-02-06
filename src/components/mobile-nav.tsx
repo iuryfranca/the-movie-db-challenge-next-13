@@ -40,7 +40,7 @@ export function MobileNav() {
             alt='Logo Short'
             height={logoBlueSquare?.height / 4.5}
             width={logoBlueSquare?.width / 4.5}
-            className='h=auto w-auto max-w-[40px]'
+            className='h-auto w-auto max-w-[40px]'
           />
           <span className='font-bold'>{siteConfig.name}</span>
         </Link>
