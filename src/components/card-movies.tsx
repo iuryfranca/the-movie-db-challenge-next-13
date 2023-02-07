@@ -2,14 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import { CircleProgressBar } from '@/components/circle-progress-bar'
 import { formatShortDate } from '@/lib/utils'
-
-interface CardMovieProps {
-  poster_path?: string
-  title?: string
-  release_date?: string
-  vote_average?: number
-  overview?: string
-}
+import { MoviesProps } from '@/core/reducers/movies-reducer'
 
 export function CardMovie({
   poster_path,
@@ -17,7 +10,7 @@ export function CardMovie({
   release_date = null,
   title,
   vote_average = 0,
-}: CardMovieProps) {
+}: MoviesProps) {
   const percentage = +vote_average.toFixed(1).toString().replace('.', '')
   const releaseDateFormatted = formatShortDate(release_date)
   const srcImage = 'https://image.tmdb.org/t/p/w185' + poster_path
