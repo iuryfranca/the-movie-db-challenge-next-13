@@ -1,6 +1,5 @@
 import { FilterPage } from '@/components/filter-page'
 import { ListItemsPage } from '@/components/list-items-page'
-import * as React from 'react'
 
 export default async function MoviesPage() {
   return (

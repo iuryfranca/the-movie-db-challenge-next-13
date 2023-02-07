@@ -1,7 +1,9 @@
+'use client'
+
 import {
   createContext,
-  Dispatch,
   FC,
+  ReactNode,
   useCallback,
   useContext,
   useEffect,
@@ -18,7 +20,7 @@ import {
 import { api } from '@/lib/axios'
 
 interface Props {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 type MoviesContextData = {
@@ -44,26 +46,32 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
     initialSiteListState
   )
 
-  const getMovies = useCallback(async () => {
-    const pageNumberUrl = `&page=${numberPage}`
-    setLoadingData(true)
+  const getMovies = useCallback(
+    async (typeGet: string = 'popular') => {
+      const pageNumberUrl = `&page=${numberPage}`
+      const bodyApi =
+        typeGet === 'popular' ? '/movie/popular?' : '/discover/movie?'
 
-    api
-      .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
-      .then((res) => {
-        const lastMoviesList = moviesList
-        dispatch({
-          type: 'setSiteList',
-          payload: {
-            moviesList: [...lastMoviesList, ...res.data.results],
-          },
+      setLoadingData(true)
+
+      api
+        .get(`${bodyApi}${apiKey}${pageNumberUrl}`)
+        .then((res) => {
+          const lastMoviesList = moviesList
+          dispatch({
+            type: 'setSiteList',
+            payload: {
+              moviesList: [...lastMoviesList, ...res.data.results],
+            },
+          })
         })
-      })
-      .catch((err) => new Error('Failed to fetch data: ', err))
-      .finally(() => {
-        setLoadingData(false)
-      })
-  }, [moviesList, numberPage])
+        .catch((err) => new Error('Failed to fetch data: ', err))
+        .finally(() => {
+          setLoadingData(false)
+        })
+    },
+    [moviesList, numberPage]
+  )
 
   function incrementPageNumber() {
     setNumberPage(numberPage + 1)
@@ -73,7 +81,13 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
     getMovies()
   }, [numberPage])
 
-  return <MoviesContext>{children}</MoviesContext>
+  return (
+    <MoviesContext.Provider
+      value={{ moviesList, loadingData, getMovies, incrementPageNumber }}
+    >
+      {children}
+    </MoviesContext.Provider>
+  )
 }
 
 export const useMoviesContext = () => {

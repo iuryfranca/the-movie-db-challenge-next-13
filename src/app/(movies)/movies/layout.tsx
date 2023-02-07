@@ -1,4 +1,5 @@
 import { SiteHeader } from '@/components/site-header'
+import { MoviesProvider } from '@/core/contexts/movies-context'
 import { getCurrentUser } from '@/lib/session'
 
 interface MovieLayoutProps {
