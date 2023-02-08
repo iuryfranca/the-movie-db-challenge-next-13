@@ -49,7 +49,7 @@ export function FilterPage() {
         }
       }
     },
-    [genreSelected]
+    [genreSelected, setGenreSelected]
   )
 
   function changeColorButton(id) {
@@ -61,6 +61,10 @@ export function FilterPage() {
   useEffect(() => {
     getGenreOptionsApi()
   }, [])
+
+  useEffect(() => {
+    console.log('genreSelected', genreSelected)
+  }, [genreSelected])
 
   return (
     <div className='flex flex-col justify-center gap-4 rounded-lg border-2 border-slate-900 p-4 shadow-md dark:border-slate-400 '>
@@ -120,7 +124,7 @@ export function FilterPage() {
         <Button
           variant='subtle'
           className='w-full bg-slate-900 text-slate-50 hover:bg-slate-700'
-          onClick={() => getMovies('discover')}
+          onClick={() => getMovies('discover', 1)}
         >
           Pesquisar
         </Button>

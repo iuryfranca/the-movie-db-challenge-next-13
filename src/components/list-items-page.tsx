@@ -8,17 +8,11 @@ import { useEffect } from 'react'
 import { ListItemsPageSkeleton } from './skeleton/list-items-page-skeleton'
 
 export function ListItemsPage() {
-  const {
-    moviesList,
-    loadingData,
-    numberPage,
-    getMovies,
-    incrementPageNumber,
-  } = useMoviesContext()
+  const { moviesList, loadingData, getMovies, numberPage } = useMoviesContext()
 
   useEffect(() => {
     getMovies()
-  }, [numberPage])
+  }, [])
 
   return (
     <>
@@ -45,7 +39,7 @@ export function ListItemsPage() {
           <Button
             variant='outline'
             className='mt-8 border-2 border-slate-900 dark:border-slate-300'
-            onClick={() => incrementPageNumber()}
+            onClick={() => getMovies('popular', numberPage + 1)}
           >
             Carregar mais filmes
           </Button>

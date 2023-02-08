@@ -31,16 +31,10 @@ export interface GenreProps {
   name: string
 }
 
-export interface SiteListProps {
-  moviesList: MoviesProps[]
-  genreList: GenreProps[]
-}
-
 type MoviesContextData = {
   moviesList: MoviesProps[]
   loadingData: boolean
-  getMovies: (typeGet?: string) => void
-  incrementPageNumber: () => void
+  getMovies: (typeGet?: string, numberPageApi?: number) => void
   numberPage: number
   genreSelected: number[]
   setGenreSelected: Dispatch<SetStateAction<number[]>>
@@ -56,51 +50,41 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
   const [genreSelected, setGenreSelected] = useState<number[]>([])
 
   const getMovies = useCallback(
-    async (typeGet: string = 'popular') => {
-      const pageNumberUrl = `&page=${numberPage}`
-      const bodyApi =
-        typeGet === 'popular' ? '/movie/popular?' : '/discover/movie?'
+    async (typeGet: string = 'popular', numberPageApi: number = 1) => {
+      const pageNumberUrl = `&page=${numberPageApi}`
 
-      if (typeGet === 'discover') {
-        setMoviesList([])
-      }
-
+      setNumberPage(numberPageApi)
       setLoadingData(true)
 
       api
-        .get(`${bodyApi}${apiKey}${pageNumberUrl}`, {
+        .get(`/movie/popular?${apiKey}${pageNumberUrl}`, {
           params: {
             with_genres:
               genreSelected.length > 0 ? genreSelected.toString() : null,
           },
         })
         .then((res) => {
-          setMoviesList([...moviesList, ...res.data.results])
+          setMoviesList(
+            typeGet === 'discover'
+              ? [...res.data.results]
+              : [...moviesList, ...res.data.results]
+          )
         })
         .catch((err) => new Error('Failed to fetch data: ', err))
         .finally(() => {
           setLoadingData(false)
         })
     },
-    [numberPage, moviesList]
+    [genreSelected, moviesList]
   )
-
-  function incrementPageNumber() {
-    setNumberPage(numberPage + 1)
-  }
-
-  // useEffect(() => {
-  //   getMovies()
-  // }, [numberPage])
 
   return (
     <MoviesContext.Provider
       value={{
         moviesList,
+        getMovies,
         loadingData,
         numberPage,
-        getMovies,
-        incrementPageNumber,
         genreSelected,
         setGenreSelected,
       }}
