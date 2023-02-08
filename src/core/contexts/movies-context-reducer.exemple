@@ -8,10 +8,13 @@ import {
   SetStateAction,
   useCallback,
   useContext,
+  useEffect,
+  useReducer,
   useState,
 } from 'react'
 
 import { api } from '@/lib/axios'
+import { siteListReducer } from '../reducers/movies-reducer'
 
 interface Props {
   children: ReactNode
@@ -42,8 +45,6 @@ type MoviesContextData = {
   getMovies: (typeGet?: string) => void
   incrementPageNumber: () => void
   numberPage: number
-  genreSelected: number[]
-  setGenreSelected: Dispatch<SetStateAction<number[]>>
 }
 const apiKey = process.env.NEXT_PUBLIC_API_KEY_V3
 
@@ -52,8 +53,17 @@ export const MoviesContext = createContext({} as MoviesContextData)
 export const MoviesProvider: FC<Props> = ({ children }) => {
   const [numberPage, setNumberPage] = useState<number>(1)
   const [loadingData, setLoadingData] = useState<boolean>(true)
-  const [moviesList, setMoviesList] = useState<MoviesProps[]>([])
   const [genreSelected, setGenreSelected] = useState<number[]>([])
+
+  const initialSiteListState: SiteListProps = {
+    moviesList: [],
+    genreList: [],
+  }
+
+  const [{ moviesList, genreList }, dispatch] = useReducer(
+    siteListReducer,
+    initialSiteListState
+  )
 
   const getMovies = useCallback(
     async (typeGet: string = 'popular') => {
@@ -62,7 +72,9 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
         typeGet === 'popular' ? '/movie/popular?' : '/discover/movie?'
 
       if (typeGet === 'discover') {
-        setMoviesList([])
+        dispatch({
+          type: 'resetMoviesList',
+        })
       }
 
       setLoadingData(true)
@@ -70,12 +82,19 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
       api
         .get(`${bodyApi}${apiKey}${pageNumberUrl}`, {
           params: {
-            with_genres:
-              genreSelected.length > 0 ? genreSelected.toString() : null,
+            with_genres: genreSelected.toString(),
           },
         })
         .then((res) => {
-          setMoviesList([...moviesList, ...res.data.results])
+          const lastMoviesList = moviesList
+
+          dispatch({
+            type: 'setSiteList',
+            payload: {
+              moviesList: [...lastMoviesList, ...res.data.results],
+              genreList: [...genreList],
+            },
+          })
         })
         .catch((err) => new Error('Failed to fetch data: ', err))
         .finally(() => {
@@ -101,8 +120,6 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
         numberPage,
         getMovies,
         incrementPageNumber,
-        genreSelected,
-        setGenreSelected,
       }}
     >
       {children}

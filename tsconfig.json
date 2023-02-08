@@ -38,7 +38,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/lib/[...nextauth].js"
+    "src/lib/[...nextauth].js",
+    "src/core/contexts/movies-context-reducer.exemple"
   ],
   "exclude": ["node_modules"]
 }

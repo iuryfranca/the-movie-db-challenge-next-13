@@ -18,24 +18,16 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
 import { useCallback, useEffect, useReducer, useState } from 'react'
-import { SiteListProps, siteListReducer } from '@/core/reducers/movies-reducer'
 import { api } from '@/lib/axios'
 import { cn } from '@/lib/utils'
+import { useMoviesContext } from '@/core/contexts/movies-context'
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY_V3
 
 export function FilterPage() {
   const [genreInicializeFilter, setGenreInicializeFilter] = useState<[]>([])
-  const [genreSelected, setGenreSelected] = useState<number[]>([])
 
-  const initialSiteListState: SiteListProps = {
-    moviesList: [],
-  }
-
-  const [{ moviesList }, dispatch] = useReducer(
-    siteListReducer,
-    initialSiteListState
-  )
+  const { getMovies, genreSelected, setGenreSelected } = useMoviesContext()
 
   const getGenreOptionsApi = useCallback(async () => {
     api
@@ -66,33 +58,9 @@ export function FilterPage() {
       : 'bg-none'
   }
 
-  async function searchDiscoverApi() {
-    api
-      .get(`/discover/movie?${apiKey}`, {
-        params: {
-          with_genres: genreSelected.toString(),
-        },
-      })
-      .then((res) =>
-        dispatch({
-          type: 'setSiteList',
-          payload: {
-            moviesList: [...res.data.results],
-          },
-        })
-      )
-      .catch((err) => new Error('Failed to fetch data: ', err))
-  }
-
   useEffect(() => {
-    // if (genreSelected.length === 0) {
     getGenreOptionsApi()
-    // }
   }, [])
-
-  useEffect(() => {
-    console.log('moviesList FILTER', moviesList)
-  }, [moviesList])
 
   return (
     <div className='flex flex-col justify-center gap-4 rounded-lg border-2 border-slate-900 p-4 shadow-md dark:border-slate-400 '>
@@ -152,7 +120,7 @@ export function FilterPage() {
         <Button
           variant='subtle'
           className='w-full bg-slate-900 text-slate-50 hover:bg-slate-700'
-          onClick={() => searchDiscoverApi()}
+          onClick={() => getMovies('discover')}
         >
           Pesquisar
         </Button>

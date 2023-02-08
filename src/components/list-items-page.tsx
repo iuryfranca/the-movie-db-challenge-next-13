@@ -8,14 +8,17 @@ import { useEffect } from 'react'
 import { ListItemsPageSkeleton } from './skeleton/list-items-page-skeleton'
 
 export function ListItemsPage() {
-  const { moviesList, loadingData, getMovies, incrementPageNumber } =
-    useMoviesContext()
+  const {
+    moviesList,
+    loadingData,
+    numberPage,
+    getMovies,
+    incrementPageNumber,
+  } = useMoviesContext()
 
   useEffect(() => {
-    if (moviesList.length === 0) {
-      getMovies()
-    }
-  }, [])
+    getMovies()
+  }, [numberPage])
 
   return (
     <>

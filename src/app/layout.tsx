@@ -26,13 +26,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='flex min-h-screen flex-col'>
-            <MoviesProvider>{children}</MoviesProvider>
-          </div>
-          <SiteFooter />
-          <TailwindIndicator />
-        </ThemeProvider>
+        <MoviesProvider>
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+            <div className='flex min-h-screen flex-col'>{children}</div>
+            <SiteFooter />
+            <TailwindIndicator />
+          </ThemeProvider>
+        </MoviesProvider>
       </body>
     </html>
   )
