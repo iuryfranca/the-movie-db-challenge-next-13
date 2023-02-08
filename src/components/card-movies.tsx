@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import { CircleProgressBar } from '@/components/circle-progress-bar'
 import { formatShortDate } from '@/lib/utils'
-import { MoviesProps } from '@/core/reducers/movies-reducer'
+import { MoviesProps } from '@/core/contexts/movies-context'
 
 export function CardMovie({
   poster_path,
