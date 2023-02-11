@@ -62,10 +62,6 @@ export function FilterPage() {
     getGenreOptionsApi()
   }, [])
 
-  useEffect(() => {
-    console.log('genreSelected', genreSelected)
-  }, [genreSelected])
-
   return (
     <div className='flex flex-col justify-center gap-4 rounded-lg border-2 border-slate-900 p-4 shadow-md dark:border-slate-400 '>
       <div>
