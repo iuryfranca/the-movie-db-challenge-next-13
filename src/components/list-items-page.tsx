@@ -6,6 +6,7 @@ import { useMoviesContext } from '@/core/contexts/movies-context'
 import { Loader2 } from 'lucide-react'
 import { useEffect } from 'react'
 import { ListItemsPageSkeleton } from './skeleton/list-items-page-skeleton'
+import Link from 'next/link'
 
 export function ListItemsPage() {
   const { moviesList, loadingData, getMovies, numberPage } = useMoviesContext()
@@ -21,7 +22,9 @@ export function ListItemsPage() {
       ) : (
         <div className='flex w-full flex-row flex-wrap justify-between gap-6'>
           {moviesList?.map((item) => (
-            <CardMovie key={item.id} {...item} />
+            <Link key={item.id} href={`/movies/${item.id}`}>
+              <CardMovie {...item} />
+            </Link>
           ))}
         </div>
       )}

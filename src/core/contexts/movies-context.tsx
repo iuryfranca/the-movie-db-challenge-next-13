@@ -17,6 +17,11 @@ interface Props {
   children: ReactNode
 }
 
+export interface GenreProps {
+  id: number
+  name: string
+}
+
 export interface MoviesProps {
   id?: number
   poster_path?: string
@@ -26,15 +31,24 @@ export interface MoviesProps {
   overview?: string
 }
 
-export interface GenreProps {
+export interface DetailsMovieProps {
   id: number
-  name: string
+  poster_path?: string
+  backdrop_path?: string
+  title?: string
+  genres?: GenreProps[]
+  release_date?: string
+  vote_average?: number
+  overview?: string
+  tagline?: string
 }
 
 type MoviesContextData = {
   moviesList: MoviesProps[]
+  detailsMovie: DetailsMovieProps
   loadingData: boolean
   getMovies: (typeGet?: string, numberPageApi?: number) => void
+  getDetailsMovie: (movieId?: number) => void
   numberPage: number
   genreSelected: number[]
   setGenreSelected: Dispatch<SetStateAction<number[]>>
@@ -47,6 +61,7 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
   const [numberPage, setNumberPage] = useState<number>(1)
   const [loadingData, setLoadingData] = useState<boolean>(true)
   const [moviesList, setMoviesList] = useState<MoviesProps[]>([])
+  const [detailsMovie, setDetailsMovie] = useState<DetailsMovieProps>(null)
   const [genreSelected, setGenreSelected] = useState<number[]>([])
 
   const getMovies = useCallback(
@@ -78,11 +93,27 @@ export const MoviesProvider: FC<Props> = ({ children }) => {
     [genreSelected, moviesList]
   )
 
+  const getDetailsMovie = useCallback(async (movieId: number) => {
+    setLoadingData(true)
+
+    api
+      .get(`/movie/${movieId}?${apiKey}`)
+      .then((res) => {
+        setDetailsMovie(res.data)
+      })
+      .catch((err) => new Error('Failed to fetch data: ', err))
+      .finally(() => {
+        setLoadingData(false)
+      })
+  }, [])
+
   return (
     <MoviesContext.Provider
       value={{
         moviesList,
+        detailsMovie,
         getMovies,
+        getDetailsMovie,
         loadingData,
         numberPage,
         genreSelected,
