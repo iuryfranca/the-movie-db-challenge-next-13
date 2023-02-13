@@ -11,7 +11,7 @@ export default async function MovieLayout({ children }: MovieLayoutProps) {
   return (
     <>
       <SiteHeader user={userSession} />
-      <main className='container flex-1'>{children}</main>
+      <main className='flex-1'>{children}</main>
     </>
   )
 }

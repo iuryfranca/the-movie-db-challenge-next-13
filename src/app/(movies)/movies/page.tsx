@@ -3,7 +3,7 @@ import { ListItemsPage } from '@/components/list-items-page'
 
 export default function MoviesPage() {
   return (
-    <>
+    <div className='container'>
       <p className='pt-3 pb-3 text-2xl font-extrabold leading-tight tracking-tighter md:py-5 md:text-3xl lg:text-4xl  lg:leading-[1.1]'>
         Filmes populares
       </p>
@@ -15,6 +15,6 @@ export default function MoviesPage() {
           <ListItemsPage />
         </section>
       </div>
-    </>
+    </div>
   )
 }
