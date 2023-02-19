@@ -20,7 +20,7 @@ export function ListItemsPage() {
 
   return (
     <>
-      {loadingData && moviesList.length === 0 ? (
+      {loadingData ? (
         <ListItemsPageSkeleton />
       ) : (
         <div className='flex w-full flex-row flex-wrap justify-between gap-6'>
