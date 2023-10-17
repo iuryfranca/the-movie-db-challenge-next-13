@@ -43,5 +43,5 @@ $ yarn dev
 
 # The server will initialize in the <http://localhost:3000>
 ```
-# Para acessar o site rodando em produção, basta acessar esse link:
-- [The Movie Database (TMDB) is a popular, user editable database for movies and TV shows](https://the-movie-db-challenge-next-13.vercel.app/)
+Para acessar o site rodando em produção, basta acessar esse link:
+- [The Movie Database (TMDB) com next 13, meu projeto pessoal](https://the-movie-db-challenge-next-13.vercel.app/)
